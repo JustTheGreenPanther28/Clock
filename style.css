@@ -24,9 +24,7 @@ body{
     border : 5px solid black;
     border-radius: 20px;
     padding : 10px;
-    background-color: rgba(255, 166, 0, 0.4);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 #digital-clock-heading{
@@ -36,7 +34,6 @@ body{
 
     text-decoration:underline wavy rgb(76, 89, 67);
     margin-bottom: 60px;
-    color :brown;
 }
 #time-row{
     display: flex;
