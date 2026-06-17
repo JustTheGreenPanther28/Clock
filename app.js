@@ -4,6 +4,7 @@ function changeBackgroundImage() {
     let hrs = currentDateTime.getHours();
     let completeBody = document.getElementsByTagName("body")[0];
     let clock = document.getElementById("digital-clock");
+    let heading = document.getElementById("digital-clock-heading");
 
     if (hrs >= 18 || hrs <= 3) {
         //night image
@@ -14,6 +15,7 @@ function changeBackgroundImage() {
     if (hrs >= 4 && hrs <= 17) {
         //day image
         completeBody.style.backgroundImage = 'url("https://res.cloudinary.com/dh62nngtk/image/upload/v1781605693/jonas-weckschmied--N_UwPdUs7E-unsplash_mf2yze.jpg")';
+        heading.style.color = "#8f1a2e";
         clock.classList.remove("night");
 
     }
