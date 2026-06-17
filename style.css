@@ -1,105 +1,166 @@
  /* night https://res.cloudinary.com/dh62nngtk/image/upload/v1781606137/billy-huynh-W8KTS-mhFUE-unsplash_hlxjf5.jpg  */
 
-*{
-    margin: 0;
-    padding: 0;
-}
+ * {
+     margin: 0;
+     padding: 0;
+ }
 
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    font-family: 'Poppins', sans-serif;  
-    width: 100%;
-    height : 100vh;  
-}
+ body {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-size: cover;
+     font-family: 'Poppins', sans-serif;
+     width: 100%;
+     height: 100vh;
+ }
 
-#digital-clock{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+ #digital-clock {
+     display: none;
+     flex-direction: column;
+     align-items: center;
+     width: 300px;
+     height: 200px;
+     border: 5px solid black;
+     border-radius: 20px;
+     padding: 10px;
+     backdrop-filter: blur(12px);
+ }
+
+ #digital-clock-heading {
+     font-family: 'Share Tech Mono', monospace;
+     font-size: 30px;
+     font-weight: 1000;
+     text-decoration: underline wavy rgb(76, 89, 67);
+     margin-bottom: 60px;
+ }
+
+ #time-row {
+     display: flex;
+     justify-content: center;
+     gap: 20px;
+ }
+
+ .time {
+     display: flex;
+     justify-content: center;
+     justify-self: center;
+     justify-items: center;
+     align-items: center;
+     align-content: center;
+     padding: 1px;
+     margin: 1px;
+     border: 5px solid black;
+     height: 50px;
+     width: 50px;
+     border-radius: 10px;
+     background-color: white;
+     font-size: 25px;
+     font-family: 'Share Tech Mono', monospace;
+     font-weight: bolder;
+     text-shadow: 2px 2px gray;
+
+ }
+
+ .colon {
+     display: flex;
+     align-items: center;
+     font-size: 2rem;
+     font-weight: bold;
+     color: white;
+ }
+
+ #digital-clock.night {
+     background-color: rgba(20, 20, 50, 0.45);
+     border: 1px solid rgba(180, 200, 255, 0.3);
+ }
+
+ #digital-clock.night #digital-clock-heading {
+     color: rgba(200, 220, 255, 0.9);
+     text-decoration-color: rgba(150, 180, 255, 0.7);
+ }
+
+ #digital {
+     position: absolute;
+     top: 15px;
+     right: 15px;
+     border-radius: 10px;
+     padding: 7px 7px 7px 7px;
+     gap: 10px;
+     background-color: rgba(150, 180, 255, 0.7);
+     border: 2px solid black;
+ }
+
+ #digital:hover,
+ #analog:hover {
+     background-color: rgb(7, 150, 212);
+     color: darkorange;
+     text-shadow: 2px 2px gray;
+ }
+
+ #digital:active,
+ #analog:active {
+     box-shadow: 2px 2px 1px 1px gray;
+ }
+
+ #analog {
+     position: absolute;
+     top: 15px;
+     left: 15px;
+     border-radius: 10px;
+     padding: 7px 7px 7px 7px;
+     gap: 10px;
+     background-color: rgba(150, 180, 255, 0.7);
+     border: 2px solid black;
+ }
+
+#analog-clock {
+    position: relative;
     width: 300px;
-    height: 200px;
-    border : 5px solid black;
-    border-radius: 20px;
-    padding : 10px;
-    backdrop-filter: blur(12px);
+    height: 300px;
+    border: 5px solid black;
+    border-radius: 50%;
+    backdrop-filter: blur(13px);
+
 }
 
-#digital-clock-heading{
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 30px;
-    font-weight: 1000;
+#analog-clock .center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: black;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
 
-    text-decoration:underline wavy rgb(76, 89, 67);
-    margin-bottom: 60px;
-}
-#time-row{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-.time{
-    display: flex;
-    justify-content: center;
-    justify-self: center;
-    justify-items: center;
-    align-items: center;
-    align-content: center;
-    padding:1px;
-    margin:1px;
-    border : 5px solid black;
-    height:50px;
-    width: 50px;
-    border-radius: 10px;
-    background-color: white;
-    font-size: 25px;
-    font-family: 'Share Tech Mono', monospace;
-    font-weight:bolder;
-    text-shadow: 2px 2px gray;
-    
-}
-.colon{
-    display: flex;
-    align-items: center;
-    font-size: 2rem;
-    font-weight: bold;
-    color: white; /* or whatever contrasts with your background */
-}
-#digital-clock.night{
-    background-color: rgba(20, 20, 50, 0.45);
-    border: 1px solid rgba(180, 200, 255, 0.3);
-}
-#digital-clock.night #digital-clock-heading{
-    color: rgba(200, 220, 255, 0.9);
-    text-decoration-color: rgba(150, 180, 255, 0.7);
-}
-#digital{
+.hand {
     position: absolute;
-    top:15px;
-    right:15px;
-    border-radius: 10px;
-    padding: 7px 7px 7px 7px;
-    gap:10px;
-    background-color:rgba(150, 180, 255, 0.7);
-    border : 2px solid black;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    border-radius: 4px;
 }
-#digital:hover,#analog:hover{
-    background-color:rgb(7, 150, 212);
-    color:darkorange;
-    text-shadow: 2px 2px gray;
+
+.hour-hand {
+    width: 6px;
+    height: 70px;
+    background: black;
+    transform: translateX(-50%) rotate(0deg);
 }
-#digital:active,#analog:active{
-    box-shadow: 2px 2px 1px 1px gray;
+
+.minute-hand {
+    width: 4px;
+    height: 100px;
+    background: black;
+    transform: translateX(-50%) rotate(0deg);
 }
-#analog{
-    position: absolute;
-    top:15px;
-    left:15px;
-    border-radius: 10px;
-    padding: 7px 7px 7px 7px;
-    gap:10px;
-    background-color:rgba(150, 180, 255, 0.7);
-    border : 2px solid black;
+
+.second-hand {
+    width: 2px;
+    height: 120px;
+    background: red;
+    transform: translateX(-50%) rotate(0deg);
 }

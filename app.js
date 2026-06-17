@@ -5,17 +5,20 @@ function changeBackgroundImage() {
     let completeBody = document.getElementsByTagName("body")[0];
     let clock = document.getElementById("digital-clock");
 
-    if (hrs >= 18) {
+    if (hrs >= 18 || hrs<=3) {
         //night image
         completeBody.style.backgroundImage = 'url("https://res.cloudinary.com/dh62nngtk/image/upload/v1781606137/billy-huynh-W8KTS-mhFUE-unsplash_hlxjf5.jpg")';
         clock.classList.add("night");
 
     }
-    else {
+    else if(hrs>=4 && hrs<=17){
         //day image
         completeBody.style.backgroundImage = 'url("https://res.cloudinary.com/dh62nngtk/image/upload/v1781605693/jonas-weckschmied--N_UwPdUs7E-unsplash_mf2yze.jpg")';
         clock.classList.remove("night");
 
+    }
+    else{
+        completeBody.style.backgroundImage = 'url("https://images.pexels.com/photos/37200092/pexels-photo-37200092.jpeg")';
     }
 }
 
